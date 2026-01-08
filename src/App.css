@@ -11,6 +11,7 @@
   --space-1:8px; --space-2:12px; --space-3:18px;
   --space-4:28px; --space-5:42px;
   --nav-width: 280px; /* width of the mobile sidebar menu */
+  --header-height: 90px; /* fixed navbar height for offset calculations */
   --transition-fast: 200ms;
   --transition-smooth: 300ms;
   /* Unified overlay color to fade background images on cards */
@@ -528,6 +529,83 @@ body {
   text-align:center;
 }
 
+/* ==== Blog Preview cards (home section) ==== */
+.blog-posts {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+  margin-top:16px;
+}
+.blog-post {
+  background:#fff;
+  border:2px solid #ffe066;
+  border-radius:14px;
+  padding:18px;
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
+.blog-post h3 { margin:0 0 6px; font-size:1.15rem; }
+.blog-post p { margin:0 0 10px; text-align:left; }
+.blog-post a {
+  color:var(--black);
+  text-decoration:none;
+  font-weight:600;
+  border-bottom:2px solid var(--yellow);
+  padding-bottom:2px;
+}
+.blog-post a:hover { color:#000; }
+
+/* ==== Blog Post Page ==== */
+.blog-page { background:var(--yellow-soft); padding: calc(var(--header-height) + 20px) 0 80px; }
+.blog-post-container { max-width:840px; margin:0 auto; }
+
+/* Breadcrumbs styling */
+.breadcrumbs { color:#666; font-size:.95rem; margin-bottom:12px; }
+.breadcrumbs a { color:var(--black); text-decoration:none; }
+.breadcrumbs a:hover { text-decoration:underline; }
+
+.blog-title {
+  font-size:clamp(1.6rem,4.8vw,2.4rem);
+  font-weight:800;
+  margin:6px 0 8px;
+}
+.blog-meta { color:#555; font-size:.95rem; margin-bottom:18px; }
+.blog-content {
+  background:#fff;
+  border:1px solid #ffe066;
+  border-radius:16px;
+  padding:24px;
+  box-shadow:0 8px 26px rgba(0,0,0,.08);
+  line-height:1.75;
+  font-size:var(--fs-body);
+  color:#222;
+  white-space:pre-line;
+}
+
+/* ==== Blog List Page (All posts) ==== */
+.blog-list-page { background:var(--yellow-soft); padding: calc(var(--header-height) + 20px) 0 80px; }
+.blog-page-title { text-align:center; font-size:var(--fs-h2); margin:0 0 16px; }
+.blog-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; }
+.blog-filters { display:flex; flex-wrap:wrap; gap:10px; margin:12px 0 18px; }
+.tag-chip { background:#fff; border:1px solid #ffe066; color:#111; padding:8px 12px; border-radius:999px; cursor:pointer; }
+.tag-chip.active { background:var(--yellow); border-color:var(--yellow); }
+.pagination { display:flex; align-items:center; gap:12px; justify-content:center; margin-top:18px; }
+.pagination button { background:#fff; border:1px solid #ddd; padding:8px 12px; border-radius:8px; cursor:pointer; }
+.page-info { font-weight:600; }
+.blog-card {
+  background:#fff;
+  border:2px solid #ffe066;
+  border-radius:16px;
+  padding:22px;
+  box-shadow:0 6px 22px rgba(0,0,0,.08);
+  transition:transform .2s, box-shadow .2s, border-color .2s;
+}
+.blog-card:hover { transform:translateY(-6px); box-shadow:0 12px 32px rgba(255,215,0,.22); border-color:var(--yellow); }
+.blog-card-title { margin:0 0 6px; font-size:1.2rem; }
+.blog-card-date { color:#666; font-size:.9rem; margin:0 0 8px; }
+.blog-card-excerpt { font-size:var(--fs-body); line-height:1.6; margin:0 0 10px; }
+.blog-readmore { color:var(--black); text-decoration:none; font-weight:700; border-bottom:2px solid var(--yellow); padding-bottom:2px; }
+.blog-readmore:hover { color:#000; }
+
 /* ==== Footer (yellow theme) ==== */
 /* ===== Footer: final black theme + spacing / alignment fixes ===== */
 
@@ -686,6 +764,7 @@ body {
 
   .nav-container { height:70px; padding:0 18px; }
   .navbar-logo { height:60px; }
+  :root { --header-height: 70px; }
   .navbar-title-full { display:none; }
   .navbar-title-short { display:block; font-size:.95rem; letter-spacing:.6px; }
 
@@ -794,6 +873,7 @@ body {
 @media (max-width:480px) {
   .nav-container { height:62px; }
   .navbar-logo { height:48px; }
+  :root { --header-height: 62px; }
   .hero { padding:70px 16px 60px; }
   .hero-title { font-size:clamp(1.7rem,8.5vw,2.2rem); }
   .about-profile-img { width:120px; height:120px; }

@@ -68,3 +68,32 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Blog Content (Markdown)
+
+This site loads blog posts from Markdown files using a custom loader in [src/utils/blogLoader.js](src/utils/blogLoader.js). To add or edit posts:
+
+1. Add a new `.md` file to [src/components/blog](src/components/blog) with frontmatter:
+
+```
+---
+slug: my-new-post
+title: "My New Post"
+date: 2025-02-01
+author: Pratidhi Therapy & Wellness
+description: "Short summary shown in lists."
+tags: [wellness, therapy]
+cover: my-image.jpg
+---
+
+Markdown content starts here...
+```
+
+2. If you use `cover` or images in Markdown, place image files in [src/images](src/images). The loader resolves filenames via Webpack.
+
+3. Components consuming posts:
+	- [src/components/BlogList.jsx](src/components/BlogList.jsx) — lists all posts and tags
+	- [src/components/BlogPreview.jsx](src/components/BlogPreview.jsx) — shows latest posts
+	- [src/components/BlogPost.jsx](src/components/BlogPost.jsx) — renders a single post
+
+Legacy note: The old static file [src/components/data/blog.js](src/components/data/blog.js) has been removed as content now comes from Markdown.

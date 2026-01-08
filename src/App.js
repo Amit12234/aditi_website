@@ -7,6 +7,15 @@ import './App.css';
 import logo from './images/logo.png';
 import profile from './images/profile.jpeg';
 import TestimonialsSlider from './components/TestimonialsSlider';
+import ScrollToTop from './components/ScrollToTop';
+import { Routes, Route, Link } from "react-router-dom";
+import BlogPost from "./components/BlogPost";
+import BlogList from "./components/BlogList";
+import BlogPreview from './components/BlogPreview';
+
+
+
+
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -50,15 +59,25 @@ function App() {
             className={`nav-menu ${menuOpen ? 'active' : ''}`}
             onClick={() => setMenuOpen(false)}
           >
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#why">Why Us</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/#home">Home</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#why">Why Us</a></li>
+            <li><Link to="/blog">Blog</Link></li>
+            <li><a href="/#testimonials">Testimonials</a></li>
+            <li><a href="/#contact">Contact</a></li>
           </ul>
         </div>
+
       </header>
+
+      {/* Routes should render outside the fixed navbar to allow normal scrolling */}
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<></>} />
+        <Route path="/blog" element={<BlogList />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+      </Routes>
 
       <main>
         {/* Hero Section */}
@@ -219,6 +238,9 @@ function App() {
           </div>
         </section>
 
+        {/* Blog Section */}
+        <BlogPreview />
+
         {/* Testimonials */}
         <section id="testimonials" className="testimonials" aria-labelledby="testimonials-heading">
           <div className="container">
@@ -267,7 +289,6 @@ function App() {
           </div>
         </section>
       </main>
-
       <footer className="footer" role="contentinfo">
         <div className="container">
           <div className="footer-content">
@@ -278,11 +299,12 @@ function App() {
             <div className="footer-section">
               <h3>Quick Links</h3>
               <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#why">Why Us</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/#home">Home</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#why">Why Us</a></li>
+                 <li><Link to="/blog">Blog</Link></li>
+                <li><a href="/#contact">Contact</a></li>
               </ul>
             </div>
             <div className="footer-section">
@@ -301,7 +323,7 @@ function App() {
                 <a href="https://www.facebook.com/share/17rgVcLM5z/" aria-label="Facebook">Facebook</a>
                 <a href="https://www.instagram.com/pratidhi_therapyandwellness?igsh=bGJpZmlsa3VzaGM2" aria-label="Instagram">Instagram</a>
                 <a href="https://www.linkedin.com/in/aditi-dwivedi-763588211?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn">LinkedIn</a>
-                {/* <a href="#" aria-label="YouTube">YouTube</a> */}
+                <a href="https://www.youtube.com/@pratidhi_therapyandwellness" aria-label="YouTube">YouTube</a>
               </div>
             </div>
           </div>

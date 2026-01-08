@@ -1,0 +1,24 @@
+local_backend: true
+media_folder: "src/images"
+public_folder: "/images"
+
+backend:
+  name: test-repo
+  branch: main
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/components/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Date", name: "date", widget: "date"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Cover Image", name: "cover", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}
