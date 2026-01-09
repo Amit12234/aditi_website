@@ -1,4 +1,4 @@
-name: Deploy React App to Hostinger
+name: Deploy React App to Hostinger (FTP)
 
 on:
   push:
@@ -24,13 +24,14 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to Hostinger via SFTP
-        uses: appleboy/scp-action@v0.1.7
+      - name: Deploy to Hostinger via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          host: ${{ secrets.FTP_SERVER }}
+          server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT }}
-          source: "build/*"
-          target: "public_html"
-          strip_components: 1
+          port: 21
+          protocol: ftp
+          local-dir: build/
+          server-dir: public_html/
+          dangerous-clean-slate: true
