@@ -323,7 +323,7 @@ function App() {
                 <a href="https://www.facebook.com/share/17rgVcLM5z/" aria-label="Facebook">Facebook</a>
                 <a href="https://www.instagram.com/pratidhi_therapyandwellness?igsh=bGJpZmlsa3VzaGM2" aria-label="Instagram">Instagram</a>
                 <a href="https://www.linkedin.com/in/aditi-dwivedi-763588211?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn">LinkedIn</a>
-                <a href="https://www.youtube.com/@pratidhi_therapyandwellness" aria-label="YouTube">YouTube</a>
+                {/* <a href="https://www.youtube.com/@pratidhi_therapyandwellness" aria-label="YouTube">YouTube</a> */}
               </div>
             </div>
           </div>
